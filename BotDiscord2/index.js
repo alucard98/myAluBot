@@ -114,7 +114,8 @@ function Dist(dato) {
         var metro2 = metro.toFixed(2);
         res = metro2 + ' metros';
     }
-    return {0: res, 1: time, 2: lat1 + ',' + lon1, 3: lat2 + ',' + lon2};
+    //return {0: res, 1: time, 2: lat1 + ',' + lon1, 3: lat2 + ',' + lon2};
+    return {0: 'ola', 1: 'time', 2: 'lat1' + ',' + 'lon1', 3: 'lat2' + ',' + 'lon2'};
 }
 
 client.on('ready', () => {
