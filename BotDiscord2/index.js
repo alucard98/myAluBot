@@ -6,17 +6,19 @@ let prefix = process.env.PREFIX;
 
 function Dist(dato) {
     var info = dato.trim();
-    var separador = " ", arregloDeSubCadenas = info.split(separador);
+    var separador1 = ",", arregloDeSubCadenas = info.split(separador1);
+    var info2 = arregloDeSubCadenas[1].toString().trim();
+    var separador2 = " ", arregloDeSubCadenas2 = info2.split(separador2);
     var aDatos = new Array();
-    for (var i = 0, j = arregloDeSubCadenas.length; i < j; i++) {
-        if (arregloDeSubCadenas[ i ]) {
-            aDatos.push(arregloDeSubCadenas[ i ]);
+    for (var i = 0, j = arregloDeSubCadenas2.length; i < j; i++) {
+        if (arregloDeSubCadenas2[ i ]) {
+            aDatos.push(arregloDeSubCadenas2[ i ]);
         }
     }
-    var lat1 = aDatos[0],
-            lon1 = aDatos[2],
-            lat2 = aDatos[3],
-            lon2 = aDatos[5];
+    var lat1 = arregloDeSubCadenas[0],
+            lon1 = aDatos[0],
+            lat2 = aDatos[1],
+            lon2 = arregloDeSubCadenas[2];
     /*lat1 = dato1.substr(0, dato1.indexOf(",", 0));
      lon1 = dato1.substr(dato1.indexOf(",", 0) + 1);
      lat2 = dato2.substr(0, dato2.indexOf(",", 0));
@@ -114,8 +116,8 @@ function Dist(dato) {
         var metro2 = metro.toFixed(2);
         res = metro2 + ' metros';
     }
+    return {0: res, 1: time, 2: lat1 + ',' + lon1, 3: lat2 + ',' + lon2};
     //return {0: res, 1: time, 2: lat1 + ',' + lon1, 3: lat2 + ',' + lon2};
-    return {0: 'ola', 1: 'time', 2: 'lat1' + ',' + 'lon1', 3: 'lat2' + ',' + 'lon2'};
 }
 
 client.on('ready', () => {
@@ -150,9 +152,9 @@ client.on('message', message => {
             let info = Dist(texto);
             //var valor = parseInt(info[0]);
             //if (isNaN(valor)) {
-              //  message.channel.send(`Parametro Inválido.`);
+            //  message.channel.send(`Parametro Inválido.`);
             //} else {
-                message.channel.send(`La distancia entre ${info[2]} y ${info[3]} es ${info[0]}. El tiempo de espera sugerido es ${info[1]} , @${user}#${discriminator} `);
+            message.channel.send(`La distancia entre ${info[2]} y ${info[3]} es ${info[0]}. El tiempo de espera sugerido es ${info[1]} , @${user}#${discriminator} `);
             //}
             break;
     }
