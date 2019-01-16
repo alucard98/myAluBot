@@ -140,7 +140,7 @@ client.on('message', message => {
             message.channel.send(":ping_pong: Pong!, " + ping + "ms desde Heroku");
             break;
         case "hola":
-            message.channel.send('Hola como estas?');
+            message.channel.send('Hola k hace :P');
             break;
         case "dist":
             /*let coord_ini = args[0];
