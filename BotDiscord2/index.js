@@ -150,12 +150,12 @@ client.on('message', message => {
             let user = message.author.username;
             let discriminator = message.author.discriminator;
             let info = Dist(texto);
-            //var valor = parseInt(info[0]);
-            //if (isNaN(valor)) {
-            //  message.channel.send(`Parametro Inválido.`);
-            //} else {
-            message.channel.send(`La distancia entre ${info[2]} y ${info[3]} es ${info[0]}. El tiempo de espera sugerido es ${info[1]} , @${user}#${discriminator} `);
-            //}
+            var valor = parseInt(info[0]);
+            if (isNaN(valor)) {
+                message.channel.send(`Parametro Inválido.`);
+            } else {
+                message.channel.send(`La distancia entre ${info[2]} y ${info[3]} es ${info[0]}. El tiempo de espera sugerido es ${info[1]} , @${user}#${discriminator} `);
+            }
             break;
     }
 
