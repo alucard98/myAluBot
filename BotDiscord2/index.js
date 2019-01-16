@@ -21,7 +21,7 @@ function Dist(dato) {
      lon1 = dato1.substr(dato1.indexOf(",", 0) + 1);
      lat2 = dato2.substr(0, dato2.indexOf(",", 0));
      lon2 = dato2.substr(dato2.indexOf(",", 0) + 1);*/
-    var rad = function (x) {
+    rad = function (x) {
         return x * Math.PI / 180;
     }
     var R = 6378.137; //Radio de la tierra en km
@@ -147,12 +147,12 @@ client.on('message', message => {
             let user = message.author.username;
             let discriminator = message.author.discriminator;
             let info = Dist(texto);
-            var valor = parseInt(info[0]);
-            if (isNaN(valor)) {
-                message.channel.send(`Parametro Inválido.`);
-            } else {
+            //var valor = parseInt(info[0]);
+            //if (isNaN(valor)) {
+              //  message.channel.send(`Parametro Inválido.`);
+            //} else {
                 message.channel.send(`La distancia entre ${info[2]} y ${info[3]} es ${info[0]}. El tiempo de espera sugerido es ${info[1]} , @${user}#${discriminator} `);
-            }
+            //}
             break;
     }
 
